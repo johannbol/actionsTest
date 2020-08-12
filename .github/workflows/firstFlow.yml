@@ -13,6 +13,6 @@ jobs:
     steps:
       - name: Simple Step
         env:
-          SUPER_SECRET: ${{ secrets.ACTION_SECRETONE }}
+          SUPER_SECRET: ${{ secrets.ACTION_SECRETONE}}
         run: |
-          echo 'The Secret is $SUPER_SECRET.'
+          echo "The Secret is $SUPER_SECRET."
