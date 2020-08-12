@@ -1,18 +1,19 @@
-name: Greet Everyone
-# This workflow is triggered on pushes to the repository.
-on: 
-  schedule:
-    - cron: 0,5,10,15,20,45,55 * * * *
+name: Manually triggered workflow
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
 
 jobs:
-  build:
-    # Job name is JobName
-    name: JobName
-    # This job runs on Linux
+  say_hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Simple Step
-        env:
-          SUPER_SECRET: ${{ secrets.ACTION_SECRETONE}}
-        run: |
-          echo "The Secret is $SUPER_SECRET."
+    - run: |
+        echo "Hello ${{ github.event.inputs.name }}!"
+        echo "- in ${{ github.event.inputs.home }}!"
