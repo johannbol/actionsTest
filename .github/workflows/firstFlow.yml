@@ -2,7 +2,7 @@ name: Greet Everyone
 # This workflow is triggered on pushes to the repository.
 on: 
   schedule:
-    - cron: 0,5,10,15,20 * * * *
+    - cron: 0,5,10,15,20,45 * * * *
 
 jobs:
   build:
